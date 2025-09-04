@@ -11,7 +11,7 @@ const mes=dataAtual.getMonth();
 document.write(`<p>O mês atual é: ${mes+1}</p>`);
 //Pegando o ano atual
 const ano=dataAtual.getFullYear();
-document.write(`<p>O mês atual é: ${ano}</p>`);
+document.write(`<p>O ano atual é: ${ano}</p>`);
 //Pegando o dia da semana atual
 const diaSemana=dataAtual.getDay();
 document.write(`<p>O dia semana atual é: ${diaSemana}</p>`);
