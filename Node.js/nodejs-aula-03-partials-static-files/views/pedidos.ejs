@@ -1,0 +1,36 @@
+<%- include ('partials/header.ejs') %>
+    <h1>Página de Pedidos</h1>
+    <hr>
+    <h2>Lista de Pedidos</h2>
+    <%#=pedidos%>
+        <table class="table table-bordered table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th>Número pedido</th>
+                    <th>Cliente</th>
+                    <th>Descrição</th>
+                </tr>
+            </thead>
+            <tbody>
+                <%pedidos.forEach(pedidos=>{%>
+                    <tr>
+                        <td>
+                            <%=pedidos.numero%>
+                        </td>
+                        <td>
+                            <%=pedidos.clientePedido%>
+                        </td>
+                        <td>
+                            <%=pedidos.algumacoisaPedido%>
+                        </td>
+                    </tr>
+                    <%})%>
+            </tbody>
+        </table>
+        <ul>
+            <li><a href="/produtos">Produtos</a></li>
+            <li><a href="/clientes">clientes</a></li>
+            <li><a href="/perfil">Perfil</a></li>
+            <li><a href="/">Homepage</a></li>
+        </ul>
+<%- include('partials/footer.ejs') %>
