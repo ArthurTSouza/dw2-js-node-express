@@ -1,13 +1,26 @@
 //Importando o express (framework)
-const express = require("express");
+//const express = require("express"); CommonJS Modules
+
+import express from "express"; // ES6 Modules
+
 //Iniciando o Express na variável 'app'
 const app = express();
+
+//Importando os Controllers (onde estão as rotas e onde é tratador as requisições)
+import ClientesController from "./controllers/ClientesController.js";
+// import PedidosController from "./controllers/PedidosController.js";
+// import ProdutosController from "./controllers/ProdutosContoller.js";
 
 //Configurando o EJS
 app.set("view engine", "ejs");
 
 //Definindo a pasta public para arquivos estáticos
 app.use(express.static("public"));
+
+//Definindo o uso das rotas que estão nos controllers
+app.use("/", ClientesController);
+// app.use("/", PedidosController);  
+// app.use("/", ProdutosController);
 
 //Criando a primeira rota do site (Rota principal)
 //Req trata a requisição
@@ -37,34 +50,6 @@ app.get("/produtos", (req, res) => {
   ];
   res.render("produtos", {
     produtos: produtos,
-  });
-});
-//Rota de Clientes
-app.get("/clientes", (req, res) => {
-  const clientes = [
-    {
-      nome: "Ricardo",
-      cpf: "123.456.789-00",
-      endereco: "Rua das Flores, 34",
-    },
-    {
-      nome: "Isaac",
-      cpf: "123.456.789-00",
-      endereco: "Rua Diamante, 100",
-    },
-    {
-      nome: "Ana Flávia",
-      cpf: "123.456.789-00",
-      endereco: "Rua Ceará, 20",
-    },
-    {
-      nome: "Renan",
-      cpf: "123.456.789-00",
-      endereco: "Rua Curitiba, 22",
-    },
-  ];
-  res.render("clientes", {
-    clientes: clientes,
   });
 });
 
