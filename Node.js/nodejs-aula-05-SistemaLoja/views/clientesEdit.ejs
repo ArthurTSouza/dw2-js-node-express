@@ -7,22 +7,27 @@
                     <h1>Alterar clientes</h1>
                 </div>
                 <div class="card-body">
-                    <form action="" method="post">
+                    <form action="/clientes/update" method="post">
                         <!-- Formulário de edição -->
+                        <input type="hidden" name="id" value="<%=cliente.id%>">
                         <label>Nome do cliente:</label>
-                        <input type="text" name="nome" placeholder="Insira o nome do cliente" class="form-control" value="<%=cliente.nome%>"
-                            required>
+                        <input type="text" name="nome" placeholder="Insira o nome do cliente" class="form-control"
+                            value="<%=cliente.nome%>" required>
                         <label>CPF do cliente:</label>
-                        <input type="text" name="cpf" placeholder="Insira o CPF do cliente" class="form-control" value="<%=cliente.cpf%>"
-                            required>
+                        <input type="text" name="cpf" placeholder="Insira o CPF do cliente" class="form-control"
+                            value="<%=cliente.cpf%>" required>
                         <label>Endereço do cliente:</label>
-                        <input type="text" name="endereco" placeholder="Insira o endereço do cliente" value="<%=cliente.endereco%>"
-                            class="form-control mb-4" required>
-                        <input type="submit" class="btn btn-success" value="Alterar">
-                        <input type="reset" class="btn btn-danger" value="Limpar">
+                        <input type="text" name="endereco" placeholder="Insira o endereço do cliente"
+                            value="<%=cliente.endereco%>" class="form-control mb-4" required>
+                        <input
+                            onclick="return confirm('Confirma as alterações realizadas para o cliente <%=cliente.nome%>?')"
+                            type="submit" class="btn btn-warning" value="Alterar">
+                        <a href="/clientes">
+                            <input type="button" class="btn btn-danger" value="Cancelar">
+                        </a>
                     </form>
                 </div>
             </div>
         </div>
 
-<%- include ('partials/footer.ejs') %>
+        <%- include ('partials/footer.ejs') %>
